@@ -110,8 +110,8 @@ export default function Reservation() {
   function handleFormSubmit() {
     let reservation = {
       user: state.user,
-      startDate: state.startDate,
-      endDate: state.endDate,
+      start: state.startDate,
+      end: state.endDate,
       notes: state.note,
     };
     const requestOptions = {
