@@ -47,14 +47,14 @@ export default function AllUser() {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Lastname</TableCell>
-              <TableCell align="right">Moderslastname</TableCell>
-              <TableCell align="right">Birthdate</TableCell>
-              <TableCell align="right">Sex</TableCell>
-              <TableCell align="right">Address</TableCell>
-              <TableCell align="right">Celphone</TableCell>
-              <TableCell align="right">Email</TableCell>
+              <TableCell align="center">Name</TableCell>
+              <TableCell align="center">Lastname</TableCell>
+              <TableCell align="center">Moderslastname</TableCell>
+              <TableCell align="center">Birthdate</TableCell>
+              <TableCell align="center">Sex</TableCell>
+              <TableCell align="center">Address</TableCell>
+              <TableCell align="center">Celphone</TableCell>
+              <TableCell align="center">Email</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
