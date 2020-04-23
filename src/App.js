@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import User from "./Components/User/User";
+import AllUsers from "./Components/User/AllUsers";
 import Reservation from "./Components/Reservation/Reservation";
 import Calendar from "./Components/Calendar/Calendar";
  
@@ -19,12 +20,14 @@ export default function App() {
           <ul className="header">
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/user">User</NavLink></li>
+            <li><NavLink to="/allusers">AllUsers</NavLink></li>
             <li><NavLink to="/reservation">Reservation</NavLink></li>
             <li><NavLink to="/calendar">Calendar</NavLink></li>
           </ul>
           <div className="content">
             <Route exact path="/" component={Home}/>
             <Route path="/user" component={User}/>
+            <Route path="/allusers" component={AllUsers}/>
             <Route path="/reservation" component={Reservation}/>
             <Route path="/calendar" component={Calendar}/>
           </div>
