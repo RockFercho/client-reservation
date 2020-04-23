@@ -1,8 +1,13 @@
-import React, { useState, useReducer, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import SaveIcon from '@material-ui/icons/Save';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,14 +25,13 @@ let initialState = {
   name: "",
   lastname: "",
   moderslastname: "",
-  birthdate: "",
+  birthdate: new Date(),
   sex: "",
   address: "",
   celphone: "",
   email: "",
   msg: "",
-  errors: [],
-  hasLoaded: false,
+  errors: []
 };
  
 export default function User() {
@@ -35,8 +39,6 @@ export default function User() {
   const classes = useStyles();
 
   let [state, setState] = useState(initialState);
-  
-  //useEffect(fetchUserData, []);
 
   function handleFormChange(val) {
     let newValue = val.target.value;
@@ -80,10 +82,14 @@ export default function User() {
 
   function handleFormReset() {
     setState({ ...state, ...initialState });
-    //fetchUserData();
   }
 
-  //if (!state.hasLoaded) return "Loading...";
+  const handleDateChange = (date) => {
+    setState({
+      ...state,
+      birthdate: date
+    });
+  };
 
   if (state.msg)
     return (
@@ -132,12 +138,21 @@ export default function User() {
             value={state.moderslastname}
             onChange={handleFormChange}  
           />
-          <TextField 
-            name="birthdate"
-            label="birthdate"
-            value={state.birthdate}
-            onChange={handleFormChange}
-          />
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <KeyboardDatePicker
+              disableToolbar
+              variant="inline"
+              format="MM/dd/yyyy"
+              margin="normal"
+              id="date-picker-inline"
+              label="birthdate"
+              value={state.birthdate}
+              onChange={handleDateChange}
+              KeyboardButtonProps={{
+                'aria-label': 'change date',
+              }}
+            />
+          </MuiPickersUtilsProvider>
           <TextField 
             name="sex"
             label="Sex"
